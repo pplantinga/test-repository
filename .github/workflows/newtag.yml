@@ -16,4 +16,3 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           draft: True
           prerelease: False
-          title: "Change this to vX.Y.Z"
