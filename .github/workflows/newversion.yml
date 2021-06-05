@@ -2,15 +2,14 @@ name: "Tag version when version file changes"
 
 on:  # yamllint disable-line rule:truthy
   push:
-    branch:
-      - "main"
     paths:
       - "speechbrain/version.txt"
 
 jobs:
-  pre-release:
+  tag-version:
     name: "Tag version"
     runs-on: "ubuntu-latest"
+    if: ${{ github.ref == "refs/heads/main" }}
 
     steps:
       - uses: actions/checkout@v2
