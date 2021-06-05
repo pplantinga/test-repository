@@ -9,7 +9,7 @@ with open(os.path.join("speechbrain", "version.txt")) as f:
     version = f.read().strip()
 
 setup(
-    name="speechbrain",
+    name="beechsprain",
     version=version,
     description="All-in-one speech toolkit in pure Python and Pytorch",
     long_description=long_description,
