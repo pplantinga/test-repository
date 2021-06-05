@@ -45,5 +45,5 @@ jobs:
           ref: develop
       - name: Update version.txt in develop
         run: |
-          git merge main
+          git merge origin/main
           git push
