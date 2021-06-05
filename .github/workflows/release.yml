@@ -45,5 +45,16 @@ jobs:
           ref: develop
       - name: Update version.txt in develop
         run: |
-          git merge origin/main
+          echo ${{ steps.tagname.outputs.substring }} > speechbrain/version.txt
+          git add speechbrain/version.txt
+          git commit -m 'Auto-update version.txt'
+          git push
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.tag_name }}
+      - name: Update version.txt in tag
+        run: |
+          echo ${{ steps.tagname.outputs.substring }} > speechbrain/version.txt
+          git add speechbrain/version.txt
+          git commit -m 'Auto-update version.txt'
           git push
